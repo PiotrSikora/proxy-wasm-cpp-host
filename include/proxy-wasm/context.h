@@ -238,6 +238,10 @@ public:
     t += tpe.tv_nsec;
     return t;
   }
+  string_view getConfiguration() override {
+    unimplemented();
+    return "";
+  }
   std::pair<uint32_t, string_view> getStatus() override {
     unimplemented();
     return std::make_pair(1, "unimplmemented");
@@ -315,6 +319,7 @@ public:
                                string_view /* details */) override {
     return unimplemented();
   }
+  void clearRouteCache() override { unimplemented(); }
   void failStream(WasmStreamType stream_type) override { closeStream(stream_type); }
 
   // Shared Data
