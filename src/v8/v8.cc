@@ -269,7 +269,7 @@ bool V8::load(std::string_view bytecode, std::string_view precompiled,
   shared_module_ = module_->share();
   assert(shared_module_ != nullptr);
 
-  function_names_index_ = function_names;
+  // function_names_index_ = function_names;
 
   return true;
 }
@@ -282,7 +282,7 @@ std::unique_ptr<WasmVm> V8::clone() {
   clone->store_ = wasm::Store::make(engine());
 
   clone->module_ = wasm::Module::obtain(clone->store_.get(), shared_module_.get());
-  clone->function_names_index_ = function_names_index_;
+  // clone->function_names_index_ = function_names_index_;
 
   return clone;
 }
